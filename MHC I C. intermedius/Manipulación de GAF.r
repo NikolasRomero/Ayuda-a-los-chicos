@@ -13,3 +13,47 @@ GOs <- c("GO:0030881", "GO:0032393 ", "GO:0042608", "GO:0002474", "GO:0002854", 
 
 Possible_MHC <- gaf[gaf$GO_ID %in% GOs, ]
 
+#Me di cuenta que les tocría a mano extraer las secuencias de las proteinas y me parece que es demasiado complique entonces les dejo esto 
+#Necesitan descargar estos archivos de la pagina del genoma de porosus
+
+![Logo](https://github.com/NikolasRomero/Images/blob/main/files.png)
+
+#Tienen que instalar estos paquetes que pues en general les van a servir mucho porque son de bioinformatica se descargan asi porque hacen parte de un repositorio que no es de R base
+
+install.packages("BiocManager")
+BiocManager::install("Biobase")
+BiocManager::install(update = TRUE)
+
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("Biostrings")
+BiocManager::install("rtracklayer")
+
+library(rtracklayer)
+library(BioStrings)
+
+#Nuevamente reemplazen el path_to pot la ruta a su archivo
+
+gtf_file <- "Path_to_gtf"
+gtf_data <- import(gtf_file)
+gtf_df <- as.data.frame(gtf_data)
+
+
+matching_rows <- gtf_df[gtf_df$gene_id %in% Possible_MHC$Symbol, ]
+protein_ids <- unique(matching_rows$protein_id)
+
+#Extraer las Secuencias del proteoma (archivo .faa)
+
+fastap <- "Path_To_FAA"
+protein_sequences <- readAAStringSet(fastap)
+pids <- na.omit(protein_ids)
+sequence_names <- names(protein_sequences)
+extracted_pids <- gsub("^([^ ]+) .*", "\\1", sequence_names)
+matching_indices <- match(pids, extracted_pids)
+selected_proteins <- protein_sequences[matching_indices]
+
+MHC<- "MHC.fasta"
+writeXStringSet(selected_proteins, file = MHC)
+
+
