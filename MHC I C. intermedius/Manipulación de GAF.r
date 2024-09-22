@@ -14,10 +14,7 @@ GOs <- c("GO:0030881", "GO:0032393 ", "GO:0042608", "GO:0002474", "GO:0002854", 
 Possible_MHC <- gaf[gaf$GO_ID %in% GOs, ]
 
 #Me di cuenta que les tocría a mano extraer las secuencias de las proteinas y me parece que es demasiado complique entonces les dejo esto 
-#Necesitan descargar estos archivos de la pagina del genoma de porosus
-
-![Logo](https://github.com/NikolasRomero/Images/blob/main/files.png)
-
+#Necesitan descargar los archivos de la pagina del genoma de porosus que aparecen en la imagen del README
 #Tienen que instalar estos paquetes que pues en general les van a servir mucho porque son de bioinformatica se descargan asi porque hacen parte de un repositorio que no es de R base
 
 install.packages("BiocManager")
