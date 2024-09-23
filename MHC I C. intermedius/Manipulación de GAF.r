@@ -1,4 +1,5 @@
 #Primero van a subir el archivo .gaf para modificarlo  y otros archivos de texto plano les sugiero descargar Notepad++ que es une ditor de texto mucho mejhor que el Bloc de Notas
+#Se me olvido comentarles pero al GAF tienen que borrarle el ! que esta junto al #DB Para que les corra el codigo
 #En Path to GAF deben cambiarlo por la ruta donde guardaron el GAF modificado
 gaf <- read.delim("Path_to_GAF", header = TRUE, comment.char = "!", stringsAsFactors = FALSE)
 #Si quieren extraer columnas seria asi
