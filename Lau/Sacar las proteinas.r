@@ -5,7 +5,7 @@
 
 #baseMean	log2FoldChange	lfcSE	stat	pvalue	padj	seqname	start	end	strand	GeneID	transcript_id	product	protein_id
 
-#Debes iincluir el # para que R no lea la primera columna como columna sino como rownames te dejo imagen de referencia en el README
+#Debes incluir el # para que R no lea la primera columna como columna sino como rownames te dejo imagen de referencia en el README
 #Ahora vamos con el codigo, esto que sigue es R base asi que no necesitas descargar nada mas que la ultima versió de R y R studio
 
 ori_degs <- read.delim("Path_To_Degs", row.names = NULL)
