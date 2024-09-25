@@ -6,7 +6,6 @@ Para que les quede más facil el trabajo a todos y no sufran tanto con el codigo
 
 Cualquier cosa me dicen
 
-![Logo](https://github.com/NikolasRomero/Images/blob/main/nico.png)
 
 Segun lo que vamos:
 
